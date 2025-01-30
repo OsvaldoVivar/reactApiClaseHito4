@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -18,10 +18,17 @@ function App() {
     }
     obtenerDatos();
   }, []);
+  const nombre = useRef();
+
+  const handleBoton = () => {
+    console.log(nombre.current.value);
+  };
 
   return (
     <div>
       <h1 className="text-4xl">Componentes</h1>
+      <input ref={nombre} />
+      <button onClick={handleBoton}>ver nombre</button>
       <p>
         nombre: <span>{persona.nombre}</span>
       </p>
